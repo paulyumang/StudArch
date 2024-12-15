@@ -1,0 +1,40 @@
+Array
+(
+    [studentIdno] => 24-0000-251
+)
+Array
+(
+    [studentIdno] => 24-0000-251
+)
+Array
+(
+    [Studentidno] => 24-0000-251
+)
+Array
+(
+    [Studentidno] => 24-0000-251
+)
+Array
+(
+    [Studentidno] => 24-0000-251
+)
+Array
+(
+    [Studentidno] => 24-0000-251
+)
+Array
+(
+    [Studentidno] => 24-0000-251
+)
+Array
+(
+    [Studentidno] => 24-0000-251
+)
+Array
+(
+    [Studentidno] => 24-0000-251
+)
+Array
+(
+    [Studentidno] => 24-0000-251
+)

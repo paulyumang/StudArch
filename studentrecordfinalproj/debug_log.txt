@@ -1,0 +1,38 @@
+Array
+(
+    [studentIdno] => 24-0000-250
+)
+Array
+(
+    [studentIdno] => 24-0000-250
+)
+Raw Input: 
+Decoded Data: 
+Invalid request - studentIdno missing
+Raw Input: 
+Decoded Data: 
+Invalid request - studentIdno missing
+Raw Input: 
+Invalid request - Missing studentIdno
+Raw Input: 
+Invalid request - Missing studentIdno
+Raw Input: 
+Invalid request - Missing studentIdno
+Raw Input: 
+Decoded Data: 
+Invalid request - Missing studentIdno
+Raw Input: 
+Decoded Data: 
+Invalid request - Missing studentIdno
+Raw Input: 
+Decoded Data: 
+Invalid request - Missing studentIdno
+Request Headers: Array
+(
+    [Host] => localhost
+    [Content-Type] => application/json; charset=utf-8
+    [Content-Length] => 29
+)
+
+Raw Input: {"studentIdno":"24-0000-251"}
+SQL Query: SELECT EntryTime, ExitTime, Status FROM tbl_attendance WHERE StudentIdno = '24-0000-251' ORDER BY EntryTime DESC

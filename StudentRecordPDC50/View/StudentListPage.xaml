@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:fa="clr-namespace:UraniumUI.Icons.FontAwesome;assembly=UraniumUI.Icons.FontAwesome"
+            xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+            Shell.NavBarIsVisible="False"
+             xmlns:viewModel="clr-namespace:StudentRecordPDC50.ViewModel"
+             x:Class="StudentRecordPDC50.View.StudentListPage"
+             Title="Student List">
+    <ContentPage.BindingContext>
+        <viewModel:StudentListViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="0,0,0,30" Spacing="20" WidthRequest="700">
+            <Label 
+            Text="Student List"  
+            FontSize="30" 
+            FontAttributes="Bold" 
+            TextColor="#fd6e3c" 
+            FontFamily="Inter" 
+            Padding="0,20,0,0" 
+            HorizontalOptions="Center" />
+
+            <material:TextField 
+            Text="{Binding SearchText}" 
+            Title="Search by Name, ID, Course, or College"  
+            AccentColor="#fd6e3c"  
+            SelectionHighlightColor="#fd6e3c" 
+            FontFamily="Inter" />
+
+            <ActivityIndicator 
+            IsRunning="{Binding IsBusy}" 
+            IsVisible="{Binding IsBusy}" />
+
+
+            <!-- Display FilteredStudents -->
+            <CollectionView ItemsSource="{Binding FilteredStudents}" Margin="10,0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <!-- Frame for each student record -->
+                        <Frame 
+                        CornerRadius="10" 
+                        BorderColor="Gray" 
+                        BackgroundColor="White" 
+                        Padding="10" 
+                        HasShadow="True" 
+                        Margin="0,0,0,20"
+                            >
+                            <!-- Space only below each frame -->
+
+                            <VerticalStackLayout Padding="5" Spacing="5">
+                                <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold" FontFamily="Inter"/>
+                                <Label Text="{Binding Idno}" FontFamily="Inter"/>
+                                <Label Text="{Binding Course}" FontFamily="Inter"/>
+                                <Label Text="{Binding College}" FontFamily="Inter"/>
+                                <Label Text="{Binding Yearlevel}" FontFamily="Inter"/>
+                                <Label Text="{Binding SchoolYear}" FontFamily="Inter" />
+                            </VerticalStackLayout>
+                            
+
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

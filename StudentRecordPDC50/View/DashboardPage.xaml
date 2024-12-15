@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentRecordPDC50.View.DashboardPage"
+             xmlns:fa="clr-namespace:UraniumUI.Icons.FontAwesome;assembly=UraniumUI.Icons.FontAwesome"
+            xmlns:ur="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             Shell.NavBarIsVisible="False"
+             Title="DashboardPage">
+    <ScrollView>
+        <VerticalStackLayout
+                Padding="0,0,0,30"
+                Spacing="20"
+                WidthRequest="700">
+            <Grid ColumnDefinitions="*, Auto">
+                <!-- Left side with labels -->
+                <VerticalStackLayout Grid.Column="0" Padding="0,30,0,0">
+                    <Label Text="Hello," FontSize="30" FontFamily="Inter" Margin="0,0,0,-6"/>
+                    <Label Text="Bind Name here" FontSize="30" FontFamily="Inter" TextColor="#fd6e3c" FontAttributes="Bold" Margin="0,0,0,20"/>
+                </VerticalStackLayout>
+
+                <Button Grid.Column="1" Clicked="OnLogoutClicked">
+                    <Button.ImageSource>
+                        <FontImageSource FontFamily="FASolid" Glyph="{x:Static fa:Solid.ArrowRightFromBracket}" Color="#fd6e3c" Size="20" />
+                    </Button.ImageSource>
+                    <Button.BackgroundColor>
+                        <Color>Transparent</Color>
+                    </Button.BackgroundColor>
+                    <Button.BorderColor>
+                        <Color>Transparent</Color>
+                    </Button.BorderColor>
+                </Button>
+            </Grid>
+
+            <Frame BackgroundColor="#09b9dc" CornerRadius="10" Padding="0" Margin="0,0,0,30" HasShadow="True" BorderColor="Transparent">
+                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                    <Label Text="StudArch is an innovative platform designed to streamline academic management." 
+               VerticalOptions="Center"
+               HorizontalOptions="StartAndExpand"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Start"
+                           Padding="30,0,0,0"
+                           FontSize="16"
+                           TextColor="White"
+                           FontFamily="Inter"
+                           FontAttributes="Bold"/>
+                    <Image Source="person.png" 
+               HeightRequest="150" 
+               Aspect="AspectFit" 
+               HorizontalOptions="EndAndExpand" 
+               VerticalOptions="Center" 
+                           Margin="0,0,30,0"/>
+                </StackLayout>
+            </Frame>
+
+
+
+            <Button Text="Add User" 
+                   Clicked="OnAddUserClicked" 
+                    BackgroundColor="#fd6e3c" FontFamily="Inter"
+                    StyleClass="FilledButton"/>
+
+            <Button Text="Add Academic History" 
+                    Clicked="OnAddHistoryClicked" 
+                    BackgroundColor="#fd6e3c" FontFamily="Inter"
+                    StyleClass="FilledButton"/>
+            
+            <Button Text="Student List" 
+                    Clicked="OnStudentListClicked" 
+                    BackgroundColor="#fd6e3c" FontFamily="Inter"
+                    StyleClass="FilledButton"/>
+           
+
+        </VerticalStackLayout>
+    </ScrollView>
+   
+</ContentPage>

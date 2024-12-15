@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:fa="clr-namespace:UraniumUI.Icons.FontAwesome;assembly=UraniumUI.Icons.FontAwesome"
+            xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             Shell.NavBarIsVisible="False"
+             x:Class="StudentRecordPDC50.View.UserPage"
+             Title="UserPage">
+    <ScrollView>
+        <VerticalStackLayout                 
+            Padding="0,0,0,30"
+                Spacing="20"
+                WidthRequest="700">
+            
+            
+
+            <material:TabView>
+                
+
+                <material:TabItem Title="View Students">
+                    <material:TabItem.ContentTemplate>
+                        <DataTemplate>
+                            <ScrollView>
+                                <VerticalStackLayout 
+                                    Padding="0,0,0,30"
+                                    Spacing="20">
+                                    <Label 
+                                        Text="View Students"
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="Center" 
+                                        FontSize="30" FontAttributes="Bold" TextColor="#fd6e3c" FontFamily="Inter " Padding="0,20,0,0"/>
+
+                                    <Button Text="Load Students" StyleClass="FilledButton" Command="{Binding LoadUserCommand}" BackgroundColor="#fd6e3c" FontFamily="Inter"/>
+
+                                    <ListView 
+    ItemsSource="{Binding Users}" 
+    SelectedItem="{Binding SelectedUser}">
+
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <ViewCell>
+                                                    <Frame 
+                    CornerRadius="10" 
+                    BorderColor="Gray" 
+                    BackgroundColor="White" 
+                    Padding="10" 
+                    HasShadow="True" 
+                    Margin="5">
+
+                                                        <StackLayout
+                        Orientation="Horizontal"
+                        Padding="10">
+
+                                                            <Label 
+                            Text="{Binding Name}" 
+                            FontAttributes="Bold" 
+                            FontFamily="Inter" />
+
+                                                            <Label Text=" | " />
+
+                                                            <Label 
+                            Text="{Binding Idno}" 
+                            FontFamily="Inter" 
+                            TextColor="#09b9dc" />
+
+                                                        </StackLayout>
+
+                                                    </Frame>
+                                                </ViewCell>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+
+                                </VerticalStackLayout>
+                            </ScrollView>
+                        </DataTemplate>
+                    </material:TabItem.ContentTemplate>
+                </material:TabItem>
+
+
+                <material:TabItem Title="Manage Students">
+                    <material:TabItem.ContentTemplate>
+                        <DataTemplate>
+                            <ScrollView>
+                                <VerticalStackLayout 
+                                                Padding="0,0,0,30"
+                                                Spacing="20">
+
+                                    <Label Text="Manage Student" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold" TextColor="#fd6e3c" FontFamily="Inter " Padding="0,20,0,0"/>
+
+                                    <material:TextField Text="{Binding NameInput}" Title="Enter Name"  AccentColor="#fd6e3c"  SelectionHighlightColor="#fd6e3c" FontFamily="Inter"/>
+                                    <material:TextField Text="{Binding GenderInput}" Title="Enter Gender"  AccentColor="#fd6e3c"  SelectionHighlightColor="#fd6e3c" FontFamily="Inter"/>
+                                    <material:TextField Text="{Binding ContactnoInput}" Title="Enter Contact No."  AccentColor="#fd6e3c"  SelectionHighlightColor="#fd6e3c" FontFamily="Inter"/>
+
+                                    <Button StyleClass="FilledButton" Text="Add Student" Command="{Binding AddUserCommand}" BackgroundColor="#fd6e3c" FontFamily="Inter"/>
+                                    <Button StyleClass="FilledButton" Text="Delete Student" Command="{Binding DeleteUserCommand}" BackgroundColor="#fd6e3c" FontFamily="Inter"/>
+                                    <Button StyleClass="FilledButton" Text="Updater Student" Command="{Binding UpdateUserCommand}" BackgroundColor="#fd6e3c" FontFamily="Inter"/>
+                                </VerticalStackLayout>
+                            </ScrollView>
+                        </DataTemplate>
+                    </material:TabItem.ContentTemplate>
+                </material:TabItem>
+
+            </material:TabView>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

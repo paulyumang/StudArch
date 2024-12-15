@@ -1,0 +1,149 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                                       xmlns:fa="clr-namespace:UraniumUI.Icons.FontAwesome;assembly=UraniumUI.Icons.FontAwesome"
+            xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             Shell.NavBarIsVisible="False"
+             x:Class="StudentRecordPDC50.View.AcademicHistoryPage"
+             Title="Academic History">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20" WidthRequest="700">
+            
+            <material:TabView>
+    
+
+    <material:TabItem Title="View Students">
+        <material:TabItem.ContentTemplate>
+            <DataTemplate>
+                <ScrollView>
+                    <VerticalStackLayout 
+                        Padding="0,0,0,30"
+                        Spacing="20"
+                        >
+                                    <Label 
+                                        Text="View Students"
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="Center" 
+                                        FontSize="30" FontAttributes="Bold" TextColor="#fd6e3c" FontFamily="Inter " Padding="0,20,0,0"/>
+
+                                    <ListView ItemsSource="{Binding Students}" SelectedItem="{Binding SelectedStudent}">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <ViewCell>
+                                                    <Frame 
+    CornerRadius="10" 
+    BorderColor="Gray" 
+    BackgroundColor="White" 
+    Padding="10" 
+    HasShadow="True" 
+    Margin="10">
+
+                                                        <StackLayout
+        Orientation="Horizontal"
+        Padding="10">
+
+                                                            <Label Text="{Binding Name}"
+               FontAttributes="Bold"
+               FontFamily="Inter"/>
+
+                                                            <Label Text=" | "/>
+
+                                                            <Label Text="{Binding Idno}" 
+               FontFamily="Inter"
+               TextColor="#09b9dc"/>
+
+                                                        </StackLayout>
+                                                    </Frame>
+
+
+                                                </ViewCell>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+
+                                    <BoxView HeightRequest="1" BackgroundColor="#09b9dc" HorizontalOptions="FillAndExpand" />
+                                    <!-- Student Info -->
+                                    <Label Text="Student Academic History" FontAttributes="Bold" FontSize="30" HorizontalOptions="Center"  TextColor="#fd6e3c" FontFamily="Inter " Padding="0,20,0,0"/>
+
+
+
+                                    <Frame 
+    CornerRadius="10" 
+    BorderColor="Gray" 
+    BackgroundColor="White" 
+    Padding="5" 
+    HasShadow="True" 
+    Margin="10">
+
+                                        <!-- Display Academic History -->
+                                        <ListView 
+        ItemsSource="{Binding FilteredAcademicHistories}" 
+        IsPullToRefreshEnabled="True" 
+        ItemTapped="OnAcademicHistoryTapped">
+
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <ViewCell>
+                                                        <StackLayout Orientation="Vertical" Padding="10">
+                                                            <Label Text="{Binding College}" FontAttributes="Bold" FontFamily="Inter"/>
+                                                            <Label Text="{Binding Course}" FontFamily="Inter"/>
+                                                            <Label Text="{Binding Yearlevel}" FontFamily="Inter"/>
+                                                            <Label Text="{Binding Status}" FontFamily="Inter"/>
+                                                            <Label Text="{Binding Semester}" FontFamily="Inter"/>
+                                                            <Label Text="{Binding SchoolYear}" FontFamily="Inter"/>
+                                                        </StackLayout>
+                                                    </ViewCell>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+
+                                    </Frame>
+
+
+                                    <!-- Display "No Academic Record" message if no records found -->
+                                    <Label Text="{Binding NoRecordsMessage}" 
+                                           IsVisible="{Binding NoRecordsMessage, Converter={StaticResource EmptyStringToBoolConverter}}"
+                                           HorizontalOptions="Center" TextColor="Gray"/>
+
+                                </VerticalStackLayout>
+                </ScrollView>
+            </DataTemplate>
+        </material:TabItem.ContentTemplate>
+    </material:TabItem>
+
+
+    <material:TabItem Title="Manage Students">
+        <material:TabItem.ContentTemplate>
+            <DataTemplate>
+                <ScrollView>
+                    <VerticalStackLayout 
+                                    Padding="0,0,0,30"
+                                    Spacing="20">
+                                    <!-- Form to Add Academic History -->
+                                    <Label Text="Add Academic History" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"  TextColor="#fd6e3c" FontFamily="Inter " Padding="0,20,0,0"/>
+
+                                    <material:TextField Text="{Binding CollegeInput}" Title="Enter College"  AccentColor="#fd6e3c"  SelectionHighlightColor="#fd6e3c" FontFamily="Inter"/>
+                                    <material:TextField Text="{Binding CourseInput}" Title="Enter Course"  AccentColor="#fd6e3c"  SelectionHighlightColor="#fd6e3c" FontFamily="Inter"/>
+                                    <material:TextField Text="{Binding YearlevelInput}" Title="Enter Year Level"  AccentColor="#fd6e3c"  SelectionHighlightColor="#fd6e3c" FontFamily="Inter"/>
+                                    <material:TextField Text="{Binding StatusInput}" Title="Enter Status"  AccentColor="#fd6e3c"  SelectionHighlightColor="#fd6e3c" FontFamily="Inter"/>
+                                    <material:TextField Text="{Binding SemesterInput}" Title="Enter Semester"  AccentColor="#fd6e3c"  SelectionHighlightColor="#fd6e3c" FontFamily="Inter"/>
+                                    <material:TextField Text="{Binding SchoolYearInput}" Title="Enter School Year"  AccentColor="#fd6e3c"  SelectionHighlightColor="#fd6e3c" FontFamily="Inter"/>
+
+                                    <Button StyleClass="FilledButton" Text="Add Academic History" Command="{Binding AddAcademicHistoryCommand}" BackgroundColor="#fd6e3c" FontFamily="Inter"/>
+
+
+                                </VerticalStackLayout>
+                </ScrollView>
+            </DataTemplate>
+        </material:TabItem.ContentTemplate>
+    </material:TabItem>
+
+</material:TabView>
+
+            
+
+           
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

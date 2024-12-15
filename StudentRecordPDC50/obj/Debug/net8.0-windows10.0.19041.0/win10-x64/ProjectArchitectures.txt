@@ -1,0 +1,1 @@
+C:\Users\My PC\source\repos\StudentRecordPDC50\StudentRecordPDC50\StudentRecordPDC50.csproj;x64
